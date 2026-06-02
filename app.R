@@ -64,7 +64,7 @@ ui <- fluidPage(
     # Show a plot of the generated distribution
     mainPanel(
       plotOutput("barplot"),
-      plotOutput("piechart"),
+      # plotOutput("piechart"),
       tableOutput("table")
     )
   )
