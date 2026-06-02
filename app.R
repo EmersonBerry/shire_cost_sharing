@@ -11,6 +11,8 @@ library(shiny)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(glue)
+library(viridis)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -65,7 +67,6 @@ ui <- fluidPage(
     # Show a plot of the generated distribution
     mainPanel(
       plotOutput("barplot"),
-      # plotOutput("piechart"),
       tableOutput("table")
     )
   )
@@ -94,6 +95,18 @@ server <- function(input, output) {
         P_adj = case_when(
           P_actual < Min_p ~ Min_p,
           P_actual >= Min_p ~ (Salary_adj / Total_adj)*Total_minus_min
+        ),
+        
+        # adjust a second time in case someone dips below min after first adjustment (ex A: 155, D: 0, E: 55, S: 125)
+        Which_min_2 = case_when(P_adj < Min_p ~ Min_p,
+                                P_adj >= Min_p ~ 0),
+        Total_minus_min_2 = (1 - sum(Which_min, Which_min_2)),
+        Salary_adj_2 = case_when(P_adj <= Min_p ~ 0,
+                                 P_adj > Min_p ~ Salary),
+        Total_adj_2 = sum(Salary_adj_2),
+        P_adj_2 = case_when(
+          P_adj <= Min_p ~ Min_p,
+          P_adj > Min_p ~ (Salary_adj_2 / Total_adj_2) * Total_minus_min_2
         )
       )
     
@@ -103,32 +116,23 @@ server <- function(input, output) {
         Salary,
         Min_p,
         Actual_Percent = P_actual,
-        Adjusted_Percent = round(P_adj, 4)*100
+        Adj_Percent = round(P_adj_2, 4)*100
       )
     
   })
   
   output$barplot <- renderPlot({
-    ggplot(df_final(), aes(x = Name, y = Adjusted_Percent, fill = Name)) +
+    ggplot(df_final(), aes(x = "", y = round(Adj_Percent), fill = Name)) +
       geom_col() +
-      geom_text(aes(label = round(Adjusted_Percent), vjust = 5)) +
+      geom_text(aes(label = glue("{Name}: {Adj_Percent}%")), position = position_stack(vjust = 0.5)) +
       theme_minimal() +
       ylab("") +
       xlab("")  +
       theme(legend.position="none",
             axis.title.y=element_blank(),
             axis.text.y=element_blank(),
-            axis.ticks.y=element_blank())
+            axis.ticks.y=element_blank()) 
     
-  })
-  
-  output$piechart <- renderPlot({
-    
-    ggplot(df_final(), aes(x = "", y = Adjusted_Percent, fill = Name)) +
-      geom_col() +
-      theme_minimal() +
-      ylab("") +
-      xlab("")
   })
   
   output$table <- renderTable({
