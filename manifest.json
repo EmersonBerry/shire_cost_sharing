@@ -589,6 +589,35 @@
         "Archs": "x64"
       }
     },
+    "gridExtra": {
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
+      "description": {
+        "Package": "gridExtra",
+        "Authors@R": "c(person(\"Baptiste\", \"Auguie\",\n    email = \"baptiste.auguie@gmail.com\",\n    role = c(\"aut\", \"cre\")), person(\"Anton\", \"Antonov\",\n    email = \"tonytonov@gmail.com\",\n    role = c(\"ctb\")))",
+        "License": "GPL (>= 2)",
+        "Title": "Miscellaneous Functions for \"Grid\" Graphics",
+        "Type": "Package",
+        "Description": "Provides a number of user-level functions to work with \"grid\"\n    graphics, notably to arrange multiple grid-based plots on a page, and draw\n    tables.",
+        "Version": "2.3",
+        "VignetteBuilder": "knitr",
+        "Imports": "gtable, grid, grDevices, graphics, utils",
+        "Suggests": "ggplot2, egg, lattice, knitr, testthat",
+        "RoxygenNote": "6.0.1",
+        "NeedsCompilation": "no",
+        "Packaged": "2017-09-08 22:52:09 UTC; baptiste",
+        "Author": "Baptiste Auguie [aut, cre],\n  Anton Antonov [ctb]",
+        "Maintainer": "Baptiste Auguie <baptiste.auguie@gmail.com>",
+        "Repository": "CRAN",
+        "Date/Publication": "2017-09-09 14:12:08 UTC",
+        "Built": "R 4.5.2; ; 2025-12-27 02:40:41 UTC; windows",
+        "RemoteType": "standard",
+        "RemotePkgRef": "gridExtra",
+        "RemoteRef": "gridExtra",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "2.3"
+      }
+    },
     "gtable": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -1538,6 +1567,41 @@
         "Archs": "x64"
       }
     },
+    "viridis": {
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
+      "description": {
+        "Package": "viridis",
+        "Type": "Package",
+        "Title": "Colorblind-Friendly Color Maps for R",
+        "Version": "0.6.5",
+        "Date": "2024-01-28",
+        "Authors@R": "c(\n      person(\"Simon\", \"Garnier\", email = \"garnier@njit.edu\", role = c(\"aut\", \"cre\")),\n      person(\"Noam\", \"Ross\", email = \"noam.ross@gmail.com\", role = c(\"ctb\", \"cph\")),\n      person(\"Bob\", \"Rudis\", email = \"bob@rud.is\", role = c(\"ctb\", \"cph\")),\n      person(\"Marco\", \"Sciaini\", email = \"sciaini.marco@gmail.com\", role = c(\"ctb\", \"cph\")),\n      person(\"Antônio Pedro\", \"Camargo\", role = c(\"ctb\", \"cph\")),\n      person(\"Cédric\", \"Scherer\", email = \"scherer@izw-berlin.de\", role = c(\"ctb\", \"cph\"))\n  )",
+        "Maintainer": "Simon Garnier <garnier@njit.edu>",
+        "Description": "Color maps designed to improve graph readability for readers with \n    common forms of color blindness and/or color vision deficiency. The color \n    maps are also perceptually-uniform, both in regular form and also when \n    converted to black-and-white for printing. This package also contains \n    'ggplot2' bindings for discrete and continuous color and fill scales. A lean\n    version of the package called 'viridisLite' that does not include the \n    'ggplot2' bindings can be found at \n    <https://cran.r-project.org/package=viridisLite>.",
+        "License": "MIT + file LICENSE",
+        "Encoding": "UTF-8",
+        "Depends": "R (>= 2.10), viridisLite (>= 0.4.0)",
+        "Imports": "ggplot2 (>= 1.0.1), gridExtra",
+        "Suggests": "hexbin (>= 1.27.0), scales, MASS, knitr, dichromat,\ncolorspace, httr, mapproj, vdiffr, svglite (>= 1.2.0),\ntestthat, covr, rmarkdown, maps, terra",
+        "LazyData": "true",
+        "VignetteBuilder": "knitr",
+        "URL": "https://sjmgarnier.github.io/viridis/,\nhttps://github.com/sjmgarnier/viridis/",
+        "BugReports": "https://github.com/sjmgarnier/viridis/issues",
+        "RoxygenNote": "7.3.1",
+        "NeedsCompilation": "no",
+        "Packaged": "2024-01-28 16:20:23 UTC; simon",
+        "Author": "Simon Garnier [aut, cre],\n  Noam Ross [ctb, cph],\n  Bob Rudis [ctb, cph],\n  Marco Sciaini [ctb, cph],\n  Antônio Pedro Camargo [ctb, cph],\n  Cédric Scherer [ctb, cph]",
+        "Repository": "CRAN",
+        "Date/Publication": "2024-01-29 10:10:02 UTC",
+        "Built": "R 4.5.2; ; 2025-12-27 02:41:35 UTC; windows",
+        "RemoteType": "standard",
+        "RemotePkgRef": "viridis",
+        "RemoteRef": "viridis",
+        "RemoteRepos": "https://cran.rstudio.com",
+        "RemoteSha": "0.6.5"
+      }
+    },
     "viridisLite": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -1623,7 +1687,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "930d67a702fbab6abc166965d13165cd"
+      "checksum": "fa30aa44350b725af7e900d71449e7be"
     }
   },
   "users": null
