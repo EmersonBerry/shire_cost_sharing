@@ -114,17 +114,17 @@ server <- function(input, output) {
       transmute(
         Name,
         Salary,
-        Min_p,
-        Actual_Percent = P_actual,
-        Adj_Percent = round(P_adj_2, 4)*100
+        Min_Prop = Min_p,
+        Actual_Prop = P_actual,
+        Adj_Prop = round(P_adj_2, 4)*100
       )
     
   })
   
   output$barplot <- renderPlot({
-    ggplot(df_final(), aes(x = "", y = round(Adj_Percent), fill = Name)) +
+    ggplot(df_final(), aes(x = "", y = round(Adj_Prop), fill = Name)) +
       geom_col() +
-      geom_text(aes(label = glue("{Name}: {Adj_Percent}%")), position = position_stack(vjust = 0.5)) +
+      geom_text(aes(label = glue("{Name}: {round(Adj_Prop)}%")), position = position_stack(vjust = 0.5)) +
       theme_minimal() +
       ylab("") +
       xlab("")  +
