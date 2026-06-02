@@ -102,16 +102,16 @@ server <- function(input, output) {
         Name,
         Salary,
         Min_p,
-        P_actual,
-        P_adj = round(P_adj, 4)*100
+        Actual_Percent = P_actual,
+        Adjusted_Percent = round(P_adj, 4)*100
       )
     
   })
   
   output$barplot <- renderPlot({
-    ggplot(df_final(), aes(x = Name, y = P_adj, fill = Name)) +
+    ggplot(df_final(), aes(x = Name, y = Adjusted_Percent, fill = Name)) +
       geom_col() +
-      geom_text(aes(label = round(P_adj), vjust = 5)) +
+      geom_text(aes(label = round(Adjusted_Percent), vjust = 5)) +
       theme_minimal() +
       ylab("") +
       xlab("")  +
@@ -124,7 +124,7 @@ server <- function(input, output) {
   
   output$piechart <- renderPlot({
     
-    ggplot(df_final(), aes(x = "", y = P_adj, fill = Name)) +
+    ggplot(df_final(), aes(x = "", y = Adjusted_Percent, fill = Name)) +
       geom_col() +
       theme_minimal() +
       ylab("") +
