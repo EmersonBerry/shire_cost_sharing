@@ -45,8 +45,9 @@ ui <- fluidPage(
                   max = 300000,
                   step = 5000,
                   value = 90000),
-      br(),
-      br(),
+      # br(),
+      hr(),
+      # br(),
       sliderInput("Min_p_des",
                   "Minimum contribution percent (DES)",
                   min = 0,
@@ -102,7 +103,7 @@ server <- function(input, output) {
         Salary,
         Min_p,
         P_actual,
-        P_adj = round(P_adj*100)
+        P_adj = round(P_adj, 4)*100
       )
     
   })
@@ -110,7 +111,7 @@ server <- function(input, output) {
   output$barplot <- renderPlot({
     ggplot(df_final(), aes(x = Name, y = P_adj, fill = Name)) +
       geom_col() +
-      geom_text(aes(label = P_adj, vjust = 5)) +
+      geom_text(aes(label = round(P_adj), vjust = 5)) +
       theme_minimal() +
       ylab("") +
       xlab("")  +
